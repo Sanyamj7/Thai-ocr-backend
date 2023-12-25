@@ -1,5 +1,5 @@
 # Thai-ocr-backend
-It includes the backend code and in the link provided [here](https://thai-id-ocr-backend-m783.onrender.com/product). It contains all the database related to the app assignment. 
+It includes the backend code and in the link provided [here](https://thai-id-ocr-backend-m783.onrender.com/product). It contains all the database related to the app assignment. The database used here is MongoDb.
 ### Setup
 - **Clone**
 
