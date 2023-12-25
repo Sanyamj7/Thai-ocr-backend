@@ -1,15 +1,19 @@
+// Including the necessary packages required
 const express=require('express')
 const app=express();
 const cors= require('cors');
 const mongoose = require('mongoose');
 const Data = require('./model/Data');
+// for cross platform support that is from server to client and server to client cors support is necessarily required.
 app.use(cors());
 
 
 app.use(express.json());
+// just to check whether the server is active or not.
 app.get('/',(req,res) => {
     res.send("It is running");
 })
+// Request to update the mongodb data from the client to the server and updating the data.
 app.put('/product/:id', async (req, res) => {
   const identificationNumber = req.params.id;
 
@@ -55,7 +59,7 @@ app.put('/product/:id', async (req, res) => {
   }
 });
 
-
+// function to delete the data from the server database that is mongodb database
 app.get('/product', async (req, res) => {
     try {
       const allData = await Data.find({});
@@ -103,19 +107,7 @@ app.get('/product', async (req, res) => {
     }
 });
 
-
+// connecting to the mongodb database
 mongoose.connect("mongodb+srv://test:test@cluster0.onl7eju.mongodb.net/")
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://test:test@cluster0.onl7eju.mongodb.net/?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
-// mongoose.connect("mongodb+srv://test:test@cluster0.onl7eju.mongodb.net/", {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true
-// })
 
 app.listen(3004);
