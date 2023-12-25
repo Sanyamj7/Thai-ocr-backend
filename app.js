@@ -3,13 +3,8 @@ const app=express();
 const cors= require('cors');
 const mongoose = require('mongoose');
 const Data = require('./model/Data');
-app.use(cors(
-  {
-      origin: ["https://serene-bublanina-534604.netlify.app"],
-      methods: ["POST", "GET"],
-      credentials: true
-  }
-));
+app.use(cors());
+
 
 app.use(express.json());
 app.get('/',(req,res) => {
